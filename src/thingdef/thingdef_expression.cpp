@@ -1026,7 +1026,7 @@ FxCompareRel::FxCompareRel(int o, FxExpression *l, FxExpression *r)
 FxExpression *FxCompareRel::Resolve(FCompileContext& ctx)
 {
 	CHECKRESOLVED();
-	if (!ResolveLR(ctx, true)) return false;
+	if (!ResolveLR(ctx, true)) return NULL;
 
 	if (!ValueType.isNumeric())
 	{
@@ -1120,7 +1120,7 @@ FxExpression *FxCompareEq::Resolve(FCompileContext& ctx)
 {
 	CHECKRESOLVED();
 
-	if (!ResolveLR(ctx, true)) return false;
+	if (!ResolveLR(ctx, true)) return NULL;
 
 	if (!left || !right)
 	{
@@ -1223,7 +1223,7 @@ FxBinaryInt::FxBinaryInt(int o, FxExpression *l, FxExpression *r)
 FxExpression *FxBinaryInt::Resolve(FCompileContext& ctx)
 {
 	CHECKRESOLVED();
-	if (!ResolveLR(ctx, false)) return false;
+	if (!ResolveLR(ctx, false)) return NULL;
 
 	if (ctx.lax && ValueType == VAL_Float)
 	{

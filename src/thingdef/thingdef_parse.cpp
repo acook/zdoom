@@ -872,7 +872,7 @@ static void ParseActionDef (FScanner &sc, PClass *cls)
 		OPTIONAL = 1
 	};
 
-	bool error = false;
+	int error = 0;
 	const AFuncDesc *afd;
 	FName funcname;
 	FString args;

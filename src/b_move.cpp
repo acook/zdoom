@@ -347,7 +347,7 @@ void FCajunMaster::TurnToAng (AActor *actor)
 						maxturn = 3;
 	}
 
-	int distance = actor->player->angle - actor->angle;
+	int distance = int32(actor->player->angle - actor->angle);
 
 	if (abs (distance) < OKAYRANGE && !actor->player->enemy)
 		return;

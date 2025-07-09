@@ -125,7 +125,7 @@ bool FCajunMaster::Check_LOS (AActor *from, AActor *to, angle_t vangle)
 	if (vangle == 0)
 		return false; //Looker seems to be blind.
 
-	return (angle_t)abs (R_PointToAngle2 (from->x, from->y, to->x, to->y) - from->angle) <= vangle/2;
+	return (angle_t)abs (int32(R_PointToAngle2 (from->x, from->y, to->x, to->y) - from->angle)) <= vangle/2;
 }
 
 //-------------------------------------
@@ -214,7 +214,7 @@ void FCajunMaster::Dofire (AActor *actor, ticcmd_t *cmd)
 			{
 				actor->player->angle = an;
 				//have to be somewhat precise. to avoid suicide.
-				if (abs (actor->player->angle - actor->angle) < 12*ANGLE_1)
+				if (abs (int32(actor->player->angle - actor->angle)) < 12*ANGLE_1)
 				{
 					actor->player->t_rocket = 9;
 					no_fire = false;
@@ -256,7 +256,7 @@ shootmissile:
 				actor->player->angle -= m;
 		}
 
-		if (abs (actor->player->angle - actor->angle) < 4*ANGLE_1)
+		if (abs (int32(actor->player->angle - actor->angle)) < 4*ANGLE_1)
 		{
 			inc[actor->id] = !inc[actor->id];
 		}

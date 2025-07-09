@@ -21,9 +21,9 @@
 
 
 
-DUH *DUMBEXPORT dumb_read_mod(DUMBFILE *f, int restrict)
+DUH *DUMBEXPORT dumb_read_mod(DUMBFILE *f, int is_restrict)
 {
-	DUH *duh = dumb_read_mod_quick(f, restrict);
+	DUH *duh = dumb_read_mod_quick(f, is_restrict);
 	dumb_it_do_initial_runthrough(duh);
 	return duh;
 }

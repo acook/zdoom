@@ -111,6 +111,16 @@ add_subdirectory( gdtoa )
 add_subdirectory( wadsrc )
 add_subdirectory( src )
 
+include_directories(${CMAKE_SOURCE_DIR}/fmod/api/inc)
+link_directories(${CMAKE_SOURCE_DIR}/fmod/api/lib)
+
+include_directories(${CMAKE_SOURCE_DIR}/sdl/include)
+link_directories(${CMAKE_SOURCE_DIR}/sdl/build)
+set(SDL_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/sdl/include)
+
+add_compile_options(-Wno-narrowing)
+set (CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-narrowing")
+
 if( NOT WIN32 AND NOT APPLE )
 	add_subdirectory( output_sdl )
 endif( NOT WIN32 AND NOT APPLE )

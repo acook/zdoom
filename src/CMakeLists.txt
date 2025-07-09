@@ -831,3 +831,6 @@ if( MSVC )
 	# Compile this one file with SSE2 support.
 	set_source_files_properties( nodebuild_classify_sse2.cpp PROPERTIES COMPILE_FLAGS "/arch:SSE2" )
 endif( MSVC )
+
+add_compile_options(-Wno-narrowing)
+set (CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-narrowing")
